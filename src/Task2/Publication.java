@@ -2,16 +2,13 @@ package Task2;
 
 public abstract class Publication {
 
-    private final Chapter chapter;
-    private final int yearPublishing;
-    private final String author;
-    private final double price;
+    private Chapter chapter;
+    private int yearPublishing;
+    private String author;
+    private double price;
 
-    public boolean isLongestChapter(Publication publication) {
-        return this.chapter.isLongestChapter(publication.getChapter());
+    public Publication() {
     }
-
-    public abstract boolean isSameNameMagazine(String name);
 
     public enum Type {
         MAGAZINE, REFERENCE_BOOK, PUBLICATION
@@ -31,8 +28,20 @@ public abstract class Publication {
     public int getYearPublishing() {
         return yearPublishing;
     }
+
     public String getAuthor() {
         return author;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "chapter=" + chapter +
+                ", yearPublishing=" + yearPublishing +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                "}\n";
+
     }
 
     public double getPrice() {
@@ -43,6 +52,11 @@ public abstract class Publication {
         return yearPublishing >= 10;
     }
 
+    public boolean isLongestChapter(Publication publication) {
+        return this.chapter.isLongestChapter(publication.getChapter());
+    }
+
+    public abstract boolean isSameNameMagazine(String name);
 
     public Type getType() {
         if (this.getClass() == Magazine.class) {

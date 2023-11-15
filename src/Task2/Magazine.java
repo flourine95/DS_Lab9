@@ -9,6 +9,13 @@ public class Magazine extends Publication {
     }
 
     @Override
+    public String toString() {
+        return "Magazine{" +
+                "name='" + name + '\'' +
+                "} " + super.toString();
+    }
+
+    @Override
     public boolean isSameNameMagazine(String name) {
         return this.name.equals(name);
     }

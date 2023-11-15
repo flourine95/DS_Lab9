@@ -17,14 +17,22 @@ public class BookStore {
         this.publications = publications;
     }
 
+    @Override
+    public String toString() {
+        return "BookStore{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", publications=\n" + publications +
+                '}';
+    }
+
     public double totalPriceAllPublications() {
         return publications.stream().mapToDouble(Publication::getPrice).sum();
     }
 
     public Publication findReferenceBookWithLongestChapter() {
-        Publication max = publications.get(0);
-        for (int i = 1; i < publications.size(); i++) {
-            Publication publication = publications.get(i);
+        Publication max = new ReferenceBook();
+        for (Publication publication : publications) {
             if (publication.getType() == REFERENCE_BOOK) {
                 if (publication.isLongestChapter(max)) {
                     max = publication;
