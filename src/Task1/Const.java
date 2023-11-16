@@ -40,10 +40,7 @@ public class Const {
             "Toán cao cấp A3",
             "Kinh tế chính trị Mác- Lênin",
     };
-    public static final String[] TYPES = {
-            "Chuyên ngành",
-            "Không chuyên ngành",
-    };
+
     public static final String[] LECTURERS = {
             "Nguyễn Thị Phương Trâm",
             "Nguyễn Thanh Long",

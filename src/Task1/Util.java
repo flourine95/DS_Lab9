@@ -44,8 +44,8 @@ public class Util {
         return String.valueOf(random(99999) + 200000);
     }
 
-    public static String createTypeCourse() {
-        return Const.TYPES[random(Const.TYPES.length)];
+    public static Type createTypeCourse() {
+        return Type.values()[random(Type.values().length)];
     }
 
     public static String createTitleCourse() {

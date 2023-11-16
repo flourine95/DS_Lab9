@@ -5,11 +5,11 @@ import java.util.List;
 public class Course {
     private String id;
     private String title;
-    private String type;
+    private Type type;
     private List<Student> students;
     private String lecturer;
 
-    public Course(String id, String title, String type, List<Student> students, String lecturer) {
+    public Course(String id, String title, Type type, List<Student> students, String lecturer) {
         this.id = id;
         this.title = title;
         this.type = type;
@@ -21,7 +21,7 @@ public class Course {
         return id;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 

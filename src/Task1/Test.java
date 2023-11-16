@@ -27,8 +27,8 @@ public class Test {
         }
         Faculty faculty = new Faculty("NLU", "Thu Duc", courses);
         Util.printEntrySizeCourses(faculty);
-        System.out.println(faculty.getMaxPracticalCourse());
-        System.out.println(faculty.groupStudentsByYear());
-        System.out.println(faculty.filterCourses(Const.TYPES[1]));
+//        System.out.println(faculty.getMaxPracticalCourse());
+//        System.out.println(faculty.groupStudentsByYear());
+        System.out.println(faculty.filterCourses(Type.PRACTICE));
     }
 }

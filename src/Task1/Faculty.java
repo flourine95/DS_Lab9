@@ -18,11 +18,16 @@ public class Faculty {
     }
 
     public Course getMaxPracticalCourse() {
-        Course max = courses.get(0);
-        for (int i = 1; i < courses.size(); i++) {
-            Course course = courses.get(i);
-            if (course.isMoreStudents(max)) {
-                max = course;
+        Course max = null;
+        for (Course c : courses) {
+            if (c.getType() == Type.PRACTICE) {
+                if (max == null) {
+                    max = c;
+                } else {
+                    if (c.isMoreStudents(max)) {
+                        max = c;
+                    }
+                }
             }
         }
         return max;
@@ -35,17 +40,19 @@ public class Faculty {
             for (Student student : students) {
                 int year = student.getYear();
                 List<Student> list = map.containsKey(year) ? map.get(year) : new ArrayList<>();
-                list.add(student);
+                if (!list.contains(student)) {
+                    list.add(student);
+                }
                 map.put(year, list);
             }
         }
         return map;
     }
 
-    public Set<Course> filterCourses(String type) {
+    public Set<Course> filterCourses(Type type) {
         Set<Course> sorted = new TreeSet<>(Comparator.comparingInt(o -> -o.getStudents().size()));
         for (Course course : courses) {
-            if (course.getType().equals(type)) {
+            if (course.getType() == type) {
                 sorted.add(course);
             }
         }
