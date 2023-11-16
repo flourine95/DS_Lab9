@@ -9,19 +9,25 @@ public class Chapter {
         this.pages = pages;
     }
 
-    @Override
-    public String toString() {
-        return "Chapter{" +
-                "title='" + title + '\'' +
-                ", pages=" + pages +
-                '}';
-    }
 
-    public boolean isLongestChapter(Chapter chapter) {
-        return this.pages > chapter.pages;
-    }
 
     public String getTitle() {
         return title;
     }
+
+    public int getPages() {
+        return pages;
+    }
+
+    @Override
+    public String toString() {
+        return "\n\tChapter{" +
+                "title='" + title + '\'' +
+                ", pages=" + pages +
+                '}';
+    }
+    public boolean isLongestChapter(Chapter that) {
+        return this.pages > that.pages;
+    }
+
 }
