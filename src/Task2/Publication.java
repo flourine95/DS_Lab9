@@ -30,6 +30,14 @@ public abstract class Publication {
         return yearPublishing;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
     public String getAuthor() {
         return author;
     }

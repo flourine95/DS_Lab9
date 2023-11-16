@@ -1,12 +1,8 @@
 package Task2;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
-import static Task2.Type.MAGAZINE;
 import static Task2.Type.REFERENCE_BOOK;
 
 
@@ -23,11 +19,7 @@ public class BookStore {
 
     @Override
     public String toString() {
-        return "BookStore{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", publications=" + publications +
-                "\n}";
+        return "BookStore{" + "name='" + name + '\'' + ", address='" + address + '\'' + ", publications=" + publications + "\n}";
     }
 
     public double totalPriceAllPublications() {
@@ -50,31 +42,17 @@ public class BookStore {
         return max;
     }
 
-    public Publication findMagazinebyName(String name) {
-        return publications.stream()
-                .filter(publication -> publication.getType() == MAGAZINE)
-                .filter(publication -> publication.isSameNameMagazine(name))
-                .findFirst()
-                .orElse(null);
+    public boolean findMagazinebyName(String name) {
+        return publications.stream().anyMatch(p -> p.isSameNameMagazine(name));
     }
 
-    public List<Publication> getMagazineByName(int year) {
-        return publications.stream()
-                .filter(publication -> publication.getYearPublishing() == year)
-                .collect(Collectors.toList());
+    public List<Publication> getMagazineByYear(int year) {
+        return publications.stream().filter(p -> p.getYearPublishing() == year).collect(Collectors.toList());
     }
 
     public List<Publication> sortByTitleThenByYearPublishing() {
         List<Publication> list = new ArrayList<>(publications);
-//        list.sort(Comparator.comparing((Publication p) -> p.getChapter().getTitle()).thenComparing(p -> -p.getYearPublishing()));
-//        list.sort((o1, o2) -> {
-//            int byTitle = o1.getChapter().getTitle().compareTo(o2.getChapter().getTitle());
-//            int byYear = o1.getYearPublishing() - o2.getYearPublishing();
-//            if (byTitle == 0) {
-//                return -byYear;
-//            }
-//            return byTitle;
-//        });
+        list.sort(Comparator.comparing(Publication::getTitle).thenComparing((o1, o2) -> o2.getYearPublishing() - o1.getYearPublishing()));
         return list;
     }
 

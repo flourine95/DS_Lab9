@@ -13,9 +13,9 @@ public class Magazine extends Publication {
 
     @Override
     public String toString() {
-        return "\n\tMagazine{" +
+        return "\n\tMagazine{" + super.toString() +
                 "name='" + name + '\'' +
-                "} " + super.toString();
+                "} ";
     }
 
     @Override

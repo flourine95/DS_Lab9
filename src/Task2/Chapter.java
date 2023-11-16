@@ -21,7 +21,7 @@ public class Chapter {
 
     @Override
     public String toString() {
-        return "\n\tChapter{" +
+        return "\n\t\tChapter{" +
                 "title='" + title + '\'' +
                 ", pages=" + pages +
                 '}';
